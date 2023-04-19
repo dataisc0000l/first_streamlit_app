@@ -45,7 +45,6 @@ except URLError as e:
 # Don't run anything past here while we troubleshoot
 # steamlit.stop()
 
-
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
     my_cur.execute("SELECT * FROM pc_rivery_db.public.fruit_load_list")
@@ -59,7 +58,7 @@ if streamlit.button('Get Fruit Load List'):
 
 # Allow the end user to add a fruit to the list
 def insert_row_snowflake(new_fruit):
-  with mycnx.cursor() as my_cur:
+  with my_cnx.cursor() as my_cur:
     my_cur.execute("INSERT  into fruit_load_list VALUES ('from streamlit')")
     return "Thanks for adding " + new_fruit
 
